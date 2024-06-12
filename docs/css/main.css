@@ -1,0 +1,789 @@
+/*============================================================
+    welcome
+============================================================ */
+/* #region || welcome */
+/* Table Of Contents
+
+
+
+
+
+welcome
+imports
+resets
+theme
+\\light mode
+\\dark mode
+layout
+
+headings
+type scale
+
+buttons
+navigation
+
+animations
+media queries
+
+
+
+
+
+
+
+INSPIRATION
+
+*/
+/* =============================================
+    END welcome
+============================================= */
+/* #endregion || welcome */
+
+
+
+
+
+/*============================================================
+    imports
+============================================================ */
+/* #region || imports */
+
+/* @import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600&display=swap"); */
+/* @import url("https://fonts.googleapis.com/icon?family=Material+Icons"); */
+/* @import url("https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"); */
+
+/* @import url("./normalize.css?v=000"); */
+/* @import url("./mediaqueries.css?v=000"); */
+
+
+/* =============================================
+    END imports
+============================================= */
+/* #endregion || imports */
+
+
+
+
+
+/*============================================================
+    resets
+============================================================ */
+/* #region || resets */
+
+
+ul[class] {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+
+ul[class] li {
+    margin: 0;
+    font-size: inherit;
+}
+
+
+ul[class] a {
+    text-decoration: inherit;
+    color: inherit;
+}
+
+
+button, input[type=button] {
+    font: inherit;
+    font-size: inherit;
+}
+
+.material-icons {
+    font-size: inherit;
+}
+
+
+
+
+/* =============================================
+    END resets
+============================================= */
+/* #endregion || resets */
+
+
+
+
+
+
+/*============================================================
+    theme
+============================================================ */
+/* #region || theme */
+
+
+
+
+/* #region || light mode */
+@media (prefers-color-scheme: light ) {
+    :root {
+        --color-primary: rgb(146 146 146);
+        /* --color-primary: #8f8f8f; */
+        --color-secondary: rgb(156 54 43);
+        /* --color-secondary: #9c362b; */
+        --color-tertiary: rgb(0 140 180);
+        /* --color-tertiary: #008cb4; */
+        --color-quaternary: rgb(195 195 195);
+        /* --color-quaternary: #c3c3c3; */
+        --color-quinary: rgb(223 214 193);
+        /* --color-quinary: #dfd6c1; */
+    
+        --color-accent: #18810e;
+
+        --color-neutral-100: hsl(0, 0%, 90%);
+        --color-neutral-300: hsl(0, 0%, 70%);
+        --color-neutral-500: hsl(0, 0%, 50%);
+        --color-neutral-900: hsl(214, 6%, 24%);
+
+        --font-color-light: var(--color-neutral-100);
+        --font-color-dark: var(--color-neutral-900);
+        --border-color-primary: var(--color-neutral-500);
+
+        --font-size-4xl: 4em;
+        --font-size-3xl: 3em;
+        --font-size-2xl: 2em;
+        --font-size-xl: 1.5em;
+        --font-size-lg: 1.17em;
+        --font-size-md: 1em;
+        --font-size-sm: .83em;
+        --font-size-xs: .76em;
+        --font-size-2xs: .67em;
+
+        --font-size-heading-scaled: clamp(1.5em, 5vw, 2.5em);
+    }
+
+    html {
+        font-family: 'Merienda', cursive, Georgia, serif;
+        font-size: 100%;
+        line-height: 1.2;
+        color: var(--font-color-dark);
+    }
+
+    body {
+        background-color: var(--color-primary);
+    }
+
+    
+    h1,h2,h3,h4,h5,h6 {
+        color: var(--font-color-dark);
+    }
+
+
+}
+/* #endregion || light mode */
+
+
+
+
+/* #region || dark mode */
+/* @media (prefers-color-scheme: dark ) {} */
+/* #endregion || dark mode */
+
+
+
+
+/* =============================================
+    END theme
+============================================= */
+/* #endregion || theme */
+
+
+
+
+/*============================================================
+    layout  
+============================================================ */
+/* #region || layout */
+
+
+
+
+/* #region || temp colors */
+/* .view { background-color:       rgb(205,205,205); }
+.navigation { background-color: rgb(205,226,221); }
+.content { background-color: rgb(100,226,221); }
+.header { background-color:     rgb(255,211,205); }
+.toolbar { background-color:    rgb(255,155,123); }
+.main { background-color:    rgb(123,155,255); }
+.footer { background-color:      rgb(225,123,215); } */
+/* #endregion || temp colors */
+
+
+
+
+
+/* :root {} */
+body {
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* flex-direction: column-reverse; */
+    min-height: 100vh;
+    margin: 0 auto;
+    max-width: 1366px;
+    padding: 0.6em;
+}
+
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 700px) {
+    body {
+        max-width: 1366px;
+        padding: 1.4em;
+    }
+}
+
+.navigation {
+    grid-area: navigation;
+    /* position: sticky; */
+    /* bottom: 0; */
+    display: flex;
+    justify-content: space-between;
+    gap: 1em;
+    padding: 1em .5em;
+    flex-wrap: wrap;
+}
+
+
+.content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    grid-area: content;
+}
+
+
+.header {
+    grid-area: header;
+    /* position: sticky; */
+    /* top: 0; */
+    background-image: url("../assets/img/header-frame--with-title-larger.png");
+    min-height: clamp(88px, 22.9vw, 313px);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+
+.toolbar {
+    grid-area: toolbar;
+}
+
+
+.main {
+    flex-grow: 1;
+    grid-area: main;
+    /* padding-top: 1em; */
+}
+
+
+.footer {
+    grid-area: footer;
+}
+
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {}
+
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {}
+
+
+
+
+
+/* =============================================
+    END layout
+============================================= */
+/* #endregion || layout */
+
+
+
+
+
+/*============================================================
+    headings
+============================================================ */
+/* #region || headings */
+
+
+
+h1 { font-size: var(--font-size-2xl); }
+h2 { font-size: var(--font-size-xl); }
+h3 { font-size: var(--font-size-lg); }
+h4 { font-size: var(--font-size-md); }
+h5 { font-size: var(--font-size-sm); }
+h6 { font-size: var(--font-size-2xs); }
+
+
+
+
+
+/* =============================================
+    END headings
+============================================= */
+/* #endregion || headings */
+
+
+
+
+
+/*============================================================
+    type scale
+============================================================ */
+/* #region || type scale */
+
+
+
+
+p,
+li {
+    font-size: 1.1em;
+    margin: 0 0 1em;
+}
+
+/* 
+.font-size-4xl { font-size: 4em; }
+.font-size-3xl { font-size: 3em; }
+.font-size-2xl { font-size: 2em; }
+.font-size-xl { font-size: 1.5em; }
+.font-size-lg { font-size: 1.17em; }
+.font-size-md { font-size: 1em; }
+.font-size-sm { font-size: .83em; }
+.font-size-xs { font-size: .76em; }
+.font-size-2xs { font-size: .67em; }
+ */
+
+blockquote > p::before {
+    content: '"';
+}
+
+blockquote > p::after {
+    content: '"';
+}
+
+
+
+
+/* =============================================
+    END type scale
+============================================= */
+/* #endregion || type scale */
+
+
+
+
+
+/*============================================================
+    buttons
+============================================================ */
+/* #region || buttons */
+
+
+
+.btn {
+    border: none;
+    font-size: 1.4em;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-red {
+    background-color: var(--color-secondary);
+    color: var(--color-quinary);
+}
+
+.btn-blue {
+    background-color: var(--color-tertiary);
+    color: black;
+}
+
+.btn-icon {
+    height: 24px;
+    filter: invert(100%);
+    rotate: -18deg;
+    vertical-align: bottom;
+}
+
+.btn--has-icon {
+    white-space: nowrap;
+}
+
+
+/* =============================================
+    END buttons
+============================================= */
+/* #endregion || buttons */
+
+
+
+
+
+/*============================================================
+    navigation
+============================================================ */
+/* #region || navigation */
+
+
+
+.navigation .btn {
+    box-shadow: 4px 4px 14px -4px black;
+    flex-grow: 1;
+    font-size: clamp(.83em, 1.7vw, 1.2em);
+    padding-top: clamp(.5em, 1.2vw, 1.1em);
+    padding-bottom: clamp(.5em, 1.2vw, 1.1em);
+    /* padding-left: clamp(.3em, .6vw, 1.1em); */
+    /* padding-right: clamp(.3em, .6vw, 1.1em); */
+}
+
+.dropdown-btn {
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+    /* display: inline-block; */
+    display: flex;
+}
+
+.navigation .dropdown {
+    flex-grow: 1;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--color-neutral-100);
+    min-width: max-content;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    margin-top: 2px;
+    top: 100%;
+}
+
+.dropdown-content a {
+    color: black;
+    /* padding: .7em .5em; */
+    padding: 1.1em .5em;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: var(--color-quaternary);
+}
+
+.dropdown:hover .dropdown-content, .dropdown:active .dropdown-content, .dropdown:focus-within .dropdown-content {
+    display: block;
+}
+
+
+
+/* =============================================
+    END navigation
+============================================= */
+/* #endregion || navigation */
+
+
+
+
+
+/*============================================================
+    card-container
+============================================================ */
+/* #region || card-container */
+
+
+.pinboard {
+    display: grid;
+    grid-gap: 1em;
+    grid-template-columns: 8fr 7fr;
+}
+
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (max-width: 660px) {
+    .pinboard {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+.card-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;    
+}
+
+.card-container:nth-child(1){
+    padding-top: 9px;
+}
+
+.card {
+    width: 100%;
+}
+
+
+
+/* =============================================
+    END card-container
+============================================= */
+/* #endregion || card-container */
+
+
+
+
+
+/*============================================================
+    coming-soon
+============================================================ */
+/* #region || coming-soon */
+
+
+
+.coming-soon {
+    position: relative;
+    /* display: inline-block; */
+}
+
+.coming-soon .coming-soon-tooltip {
+    /* visibility: hidden; */
+    background-color: var(--color-neutral-900);
+    border-radius: 4px;
+    bottom: 45%;
+    color: var(--color-quinary);
+    font-size: 13px;
+    left: 84%;
+    margin-left: -50px;
+    padding: 5px 0;
+    position: absolute;
+    rotate: 20deg;
+    text-align: center;
+    width: 100px;
+    z-index: 1;
+    pointer-events: none;
+}
+
+
+.coming-soon:hover .coming-soon-tooltip {
+    visibility: visible;
+}
+
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (max-width: 660px) {
+    .coming-soon, .coming-soon-tooltip {
+        display: none;
+        visibility: hidden;
+    }
+}
+
+
+/* =============================================
+    END coming-soon
+============================================= */
+/* #endregion || coming-soon */
+
+
+
+
+
+
+
+
+/*============================================================
+    split-card
+============================================================ */
+/* #region || split-card */
+
+
+
+
+
+.split-card {
+    position: relative;
+}
+
+.split-image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.top {
+    /* background-color: red; */
+    opacity: 20%;
+    height: 45%;
+    width: 100%;
+
+}
+
+.middle {
+    /* background-color: green; */
+    opacity: 20%;
+    height: 9%;
+    width: 100%;
+}
+
+.bottom {
+    /* background-color: blue; */
+    opacity: 20%;
+    height: 41%;
+    width: 100%;
+}
+
+
+
+
+/* =============================================
+    END split-card
+============================================= */
+/* #endregion || split-card */
+
+
+
+
+
+
+
+
+
+
+
+/*============================================================
+    footer
+============================================================ */
+/* #region || footer */
+
+
+/* .footer {} */
+
+.copyright {
+    text-align: center;
+
+}
+
+
+/* =============================================
+    END footer
+============================================= */
+/* #endregion || footer */
+
+
+
+
+
+/*============================================================
+    utilities
+============================================================ */
+/* #region || utilities */
+
+
+
+
+.hidden {
+    display: none;
+    visibility: none;
+}
+
+.ellipsis {
+    max-width: 97%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+
+
+/* =============================================
+    END utilities
+============================================= */
+/* #endregion || utilities */
+
+
+
+
+/*============================================================
+    animations
+============================================================ */
+/* #region || animations */
+
+
+
+
+
+
+
+@keyframes wobble {
+    0% {
+    }
+    25% {
+    }
+    50% {
+    }
+    100% {
+    }
+}
+
+
+
+
+
+
+
+/* =============================================
+    END animations
+============================================= */
+/* #endregion || animations */
+
+
+
+
+
+/*============================================================
+    media queries
+============================================================ */
+/* #region || media queries */
+
+
+
+
+
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {}
+
+
+
+
+
+
+
+/* =============================================
+    END media queries
+============================================= */
+/* #endregion || media queries */
+
